@@ -6,6 +6,14 @@ It offers various widgets for current output, displaying layer, mod, WPM, and ba
 
 **This project is inspired by [prospector-zmk-module](https://github.com/carrefinho/prospector-zmk-module) and [zmk-dongle-display](https://github.com/englmaxi/zmk-dongle-display). Thanks for your awesome work!**
 
+## Fork info
+
+I forked this project to add the features I wanted and tailor it to my preferences.
+
+Changes:
+
+- Configurable battery widget colors by Bukharovsi ([PR](https://github.com/janpfischer/zmk-dongle-screen/pull/10))
+
 ## Demo
 
 ![Sample Screen of zmk-dongle-screen](/docs/images/screen.jpg)
@@ -14,7 +22,7 @@ It offers various widgets for current output, displaying layer, mod, WPM, and ba
 
 ### Brightness changes with ambient light sensor and screen toggle
 
-https://github.com/user-attachments/assets/3379f79c-af90-4763-8ba5-8a8f34fd66cf
+<https://github.com/user-attachments/assets/3379f79c-af90-4763-8ba5-8a8f34fd66cf>
 
 ## Building a dongle
 
@@ -49,7 +57,7 @@ This module provides several widgets to visualize the current state of your ZMK-
   Displays the current words per minute (WPM) typing speed in real time.
 
 - **Battery Widget**  
-  Shows the battery level of the dongle and/or the keyboard, if supported.
+  Shows the battery level of the dongle and/or the keyboard, if supported. Change widget color, depending on battery level.
 
 ## General Features
 
@@ -83,7 +91,7 @@ This module provides several widgets to visualize the current state of your ZMK-
 ## Installation
 
 **ZMK version compatability**
-YADS needs at least ZMK version `0.3.0` or `main` (if newer than `0.3.0`) to be build. 
+YADS needs at least ZMK version `0.3.0` or `main` (if newer than `0.3.0`) to be build.
 
 1. This guide assumes that you have already implemented a basic dongle setup as described [here](https://zmk.dev/docs/development/hardware-integration/dongle).
 2. Once this is done, add this repository to your `west.yaml`.  
@@ -94,15 +102,15 @@ YADS needs at least ZMK version `0.3.0` or `main` (if newer than `0.3.0`) to be 
      remotes:
        - name: zmkfirmware
          url-base: https://github.com/zmkfirmware
-       - name: janpfischer
-         url-base: https://github.com/janpfischer
+       - name: ilyasshafigin
+         url-base: https://github.com/ilyasshafigin
      projects:
        - name: zmk
          remote: zmkfirmware
          revision: 0.3.0 # or main if newer than 0.3.0
          import: app/west.yml
        - name: zmk-dongle-screen
-         remote: janpfischer
+         remote: ilyasshafigin
          revision: main
      self:
        path: config
@@ -114,7 +122,7 @@ YADS needs at least ZMK version `0.3.0` or `main` (if newer than `0.3.0`) to be 
 
    ```yaml
    - name: zmk-dongle-screen
-     remote: janpfischer
+     remote: ilyasshafigin
      revision: 0.0.1
    ```
 
@@ -198,6 +206,9 @@ include:
 | `CONFIG_DONGLE_SCREEN_OUTPUT_ACTIVE`                           | bool | y                              | If the Output Widget should be active or not.                                                                                                                                                                                                |
 | `CONFIG_DONGLE_SCREEN_BATTERY_ACTIVE`                          | bool | y                              | If the Battery Widget should be active or not.                                                                                                                                                                                               |
 | `CONFIG_DONGLE_SCREEN_AMBIENT_LIGHT_TEST`                      | bool | n                              | If enabled, the ambient light sensor will be mocked to adjust screen brightness.                                                                                                                                                             |
+| `DONGLE_SCREEN_BATTERY_CRIT_LEVEL`           | int  | 3       | Battery Widget become red when the level is reaching (1-100), must be lower than yellow level                                                                    |
+
+| `DONGLE_SCREEN_BATTERY_WARN_LEVEL`        | int  | 10      | Battery Widget become yellow when the level is reaching (1-100), must be greater than red level                                                                  |
 
 ## Example Configuration (`prj.conf`)
 

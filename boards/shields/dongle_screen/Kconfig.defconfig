@@ -216,4 +216,19 @@ config DONGLE_SCREEN_SYSTEM_ICON
     help
         The icon to display when the 'LGUI'/'RGUI' is pressed. Can be used to better match the Mod Widget to the underlying system.
         (0: macOS, 1: Linux, 2: Windows)
+
+config DONGLE_SCREEN_BATTERY_CRIT_LEVEL
+    int "Battery Widget become red when the level is reached"
+    default 3
+    range 0 99
+    help
+      Battery Widget become red when the level is reached
+
+config DONGLE_SCREEN_BATTERY_WARN_LEVEL
+    int "Battery Widget become yellow when the level is reached"
+    default 10
+    range 0 99
+    help
+      Battery Widget become yellow when the level is reached
+
 endif
