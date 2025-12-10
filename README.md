@@ -14,7 +14,7 @@ Changes:
 
 - Configurable battery widget colors by Bukharovsi ([PR](https://github.com/janpfischer/zmk-dongle-screen/pull/10))
 - Fix ble current profile text position
-- Migrate to new zmk boards (`seeeduino_xiao_ble` -> `xiao_ble`, `nice_nano_v2` -> `nice_nano`)
+- Migrate to ZMK v0.4 and Zephyr 4.1.0
 
 ## Demo
 
