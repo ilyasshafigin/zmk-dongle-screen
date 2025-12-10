@@ -1,1 +1,45 @@
+# zmk
+/zmk
+/.build
+/.direnv
+/.west
+/modules
+
+# MacOS
 .DS_Store
+vim-tools_notiz.vim
+./*/.DS_Store
+
+# VC Code
+.vscode
+
+# c, cpp
+*.x
+*.d
+*.dSYM
+*.o
+*.out
+
+# log
+*.log
+
+# cache
+*.cache
+cache/
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Vim
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
+
+# Test % Tmp
+test.*
+tmp.*
+temp.*

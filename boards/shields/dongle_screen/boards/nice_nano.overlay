@@ -81,6 +81,9 @@ disp_spi: &spi3 {
 
 &i2c0 {
     status = "okay";
+    pinctrl-0 = <&i2c0_default>;
+    pinctrl-1 = <&i2c0_sleep>;
+    pinctrl-names = "default", "sleep";
 
     apds9960: apds9960@39 {
         compatible = "avago,apds9960";
