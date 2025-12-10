@@ -218,6 +218,7 @@ static void st7789v_get_capabilities(const struct device *dev,
 			      struct display_capabilities *capabilities)
 {
 	const struct st7789v_config *config = dev->config;
+	struct st7789v_data *data = dev->data;
 
 	memset(capabilities, 0, sizeof(struct display_capabilities));
 	capabilities->x_resolution = config->width;
