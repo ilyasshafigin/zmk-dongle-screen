@@ -13,7 +13,8 @@ I forked this project to add the features I wanted and tailor it to my preferenc
 Changes:
 
 - Configurable battery widget colors by Bukharovsi ([PR](https://github.com/janpfischer/zmk-dongle-screen/pull/10))
-- 
+- Fix ble current profile text position
+- Migrate to new zmk boards (`seeeduino_xiao_ble` -> `xiao_ble`, `nice_nano_v2` -> `nice_nano`)
 
 ## Demo
 
@@ -132,7 +133,7 @@ YADS needs at least ZMK version `0.3.0` or `main` (if newer than `0.3.0`) to be 
 
    ```yaml
    include:
-     - board: seeeduino_xiao_ble
+     - board: xiao_ble
        shield: [YOUR_CONFIGURED_DONGLE] dongle_screen
        #cmake-args: -DCONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS=8000 #optional if logging is enabled
        #snippet: zmk-usb-logging #only enable for debugging
@@ -144,11 +145,11 @@ YADS needs at least ZMK version `0.3.0` or `main` (if newer than `0.3.0`) to be 
 
    ```yaml
    include:
-     - board: seeeduino_xiao_ble
+     - board: xiao_ble
        shield: split_left
        cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
        artifact-name: split-dongle-left
-     - board: seeeduino_xiao_ble
+     - board: xiao_ble
        shield: split_right
        cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
        artifact-name: split-dongle-right
@@ -158,24 +159,24 @@ YADS needs at least ZMK version `0.3.0` or `main` (if newer than `0.3.0`) to be 
 
 ### Configuration sample
 
-A sample `build.yaml` based on `seeeduino_xiao_ble` boards for the keyboard and the dongle including a `settings_reset` firmware could look like this:
+A sample `build.yaml` based on `xiao_ble` boards for the keyboard and the dongle including a `settings_reset` firmware could look like this:
 
 ```yaml
 include:
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble
     shield: totem_left
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
     artifact-name: totem-dongle-left
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble
     shield: totem_right
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
     artifact-name: totem-dongle-right
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble
     shield: totem_dongle dongle_screen
     cmake-args: -DCONFIG_LOG_PROCESS_THREAD_STARTUP_DELAY_MS=8000
     snippet: zmk-usb-logging
     artifact-name: totem-dongle-screen
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble
     shield: settings_reset
     artifact-name: totem-settings-reset
 ```
@@ -252,10 +253,10 @@ To achieve this, an appropriate configuration for the specific microcontroller m
 ```yaml
   include:
 ...
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble
     shield: settings_reset
 
-  - board: nice_nano_v2
+  - board: nice_nano
     shield: settings_reset
 ...
 ```
@@ -270,7 +271,7 @@ Refer to the [ZMK Local toolchain](https://zmk.dev/docs/development/local-toolch
 A command for building locally _can_ look something like this:
 
 ```
-west build -p -s /workspaces/zmk/app -d "/workspaces/zmk-build-output/totem_dongle" -b "seeeduino_xiao_ble" -S zmk-usb-logging -- -DZMK_CONFIG=/workspaces/zmk-config/config -DSHIELD="totem_dongle dongle_screen" -DZMK_EXTRA_MODULES=/workspaces/zmk-modules/zmk-dongle-screen/
+west build -p -s /workspaces/zmk/app -d "/workspaces/zmk-build-output/totem_dongle" -b "xiao_ble" -S zmk-usb-logging -- -DZMK_CONFIG=/workspaces/zmk-config/config -DSHIELD="totem_dongle dongle_screen" -DZMK_EXTRA_MODULES=/workspaces/zmk-modules/zmk-dongle-screen/
 ```
 
 _Note: a matching entry for `-DSHIELD` must already be present in your `build.yaml` in your configuration, which is given as the `-DZMK_CONFIG` argument._

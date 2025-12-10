@@ -1,8 +1,10 @@
 {
     "files.associations": {
-        "custom_status_screen.h": "c",
-        "layer_status.h": "c",
-        "battery_status.h": "c",
-        "locale": "c"
+        "*.dtsi": "cpp",
+        "*.keymap": "cpp",
+        "*.overlay": "cpp",
+    },
+    "[yaml]": {
+        "editor.formatOnSave": false
     }
 }
