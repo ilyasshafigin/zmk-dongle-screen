@@ -53,7 +53,8 @@ disp_spi: &spi3 {
 
     st7789: st7789v@0 {
         compatible = "sitronix,st7789v";
-        spi-max-frequency = <31000000>;
+        mipi-mode = <MIPI_DBI_MODE_SPI_4WIRE>;
+        mipi-max-frequency = <31000000>;
         reg = <0>;
         cmd-data-gpios = <&gpio1 4 GPIO_ACTIVE_LOW>;
         reset-gpios = <&gpio0 11 GPIO_ACTIVE_LOW>;
