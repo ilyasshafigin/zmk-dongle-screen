@@ -571,9 +571,7 @@ static DEVICE_API(display, st7789v_api) = {
 	static struct st7789v_data st7789v_data_ ## inst = {				\
 		.x_offset = DT_INST_PROP(inst, x_offset),				\
 		.y_offset = DT_INST_PROP(inst, y_offset),				\
-		/// ADDED for dongle-screen
 		.orientation = DISPLAY_ORIENTATION_NORMAL,				\
-		///
 	};										\
 											\
 	PM_DEVICE_DT_INST_DEFINE(inst, st7789v_pm_action);				\
