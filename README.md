@@ -13,6 +13,7 @@ I forked this project to add the features I wanted and tailor it to my preferenc
 Changes:
 
 - Configurable battery widget colors by Bukharovsi ([PR](https://github.com/janpfischer/zmk-dongle-screen/pull/10))
+- 
 
 ## Demo
 
@@ -207,7 +208,6 @@ include:
 | `CONFIG_DONGLE_SCREEN_BATTERY_ACTIVE`                          | bool | y                              | If the Battery Widget should be active or not.                                                                                                                                                                                               |
 | `CONFIG_DONGLE_SCREEN_AMBIENT_LIGHT_TEST`                      | bool | n                              | If enabled, the ambient light sensor will be mocked to adjust screen brightness.                                                                                                                                                             |
 | `DONGLE_SCREEN_BATTERY_CRIT_LEVEL`           | int  | 3       | Battery Widget become red when the level is reaching (1-100), must be lower than yellow level                                                                    |
-
 | `DONGLE_SCREEN_BATTERY_WARN_LEVEL`        | int  | 10      | Battery Widget become yellow when the level is reaching (1-100), must be greater than red level                                                                  |
 
 ## Example Configuration (`prj.conf`)
