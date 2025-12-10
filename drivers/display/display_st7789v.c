@@ -572,7 +572,7 @@ static DEVICE_API(display, st7789v_api) = {
 		.x_offset = DT_INST_PROP(inst, x_offset),				\
 		.y_offset = DT_INST_PROP(inst, y_offset),				\
 		/// ADDED for dongle-screen
-		.orientation = DISPLAY_ORIENTATION_NORMAL,
+		.orientation = DISPLAY_ORIENTATION_NORMAL,				\
 		///
 	};										\
 											\
