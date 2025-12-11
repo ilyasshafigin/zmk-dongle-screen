@@ -1,4 +1,8 @@
 / {
+    chosen {
+        zephyr,display = &st7789;
+    };
+
     pwmleds {
         compatible = "pwm-leds";
         disp_bl: pwm_led_1 {
@@ -6,11 +10,12 @@
         };
     };
 
-    mipi_dbi {
+    mipi_dbi_st7789 {
         compatible = "zephyr,mipi-dbi-spi";
+        spi-dev = <&spi3>;
         dc-gpios = <&xiao_d 7 GPIO_ACTIVE_HIGH>;
         reset-gpios = <&xiao_d 3 GPIO_ACTIVE_LOW>;
-        spi-dev = <&spi3>;
+        write-only;
         #address-cells = <1>;
         #size-cells = <0>;
 
